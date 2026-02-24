@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rotating Red Box</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            animation: moveAround 8s linear infinite,
+                       rotateBox 2s linear infinite;
+        }
+
+        /* Movement around screen edges */
+        @keyframes moveAround {
+            0%   { top: 0; left: 0; }
+            25%  { top: 0; left: calc(100vw - 80px); }
+            50%  { top: calc(100vh - 80px); left: calc(100vw - 80px); }
+            75%  { top: calc(100vh - 80px); left: 0; }
+            100% { top: 0; left: 0; }
+        }
+
+        /* Continuous rotation */
+        @keyframes rotateBox {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box"></div>
+
+</body>
+</html>
